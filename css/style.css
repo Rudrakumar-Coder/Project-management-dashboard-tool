@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #f5f5f5;
+    background-color: #f5f5f580;
     color: #333;
     line-height: 1.6;
 }
@@ -113,7 +113,7 @@ header {
 .sidebar {
     width: 250px;
     background: #34495e;
-    color: white;
+    color: rgb(16, 15, 15);
     padding: 20px;
 }
 
@@ -265,4 +265,72 @@ tr:hover {
         display: block;
         overflow-x: auto;
     }
+}
+/* ======================== */
+/* ENHANCEMENTS ONLY */
+/* ======================== */
+
+/* Elegant workspace background */
+body {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Frosted glass panels */
+.auth-container,
+.dashboard-container,
+.modal-content,
+.project-details,
+.sidebar {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgb(255, 255, 255) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Subtle animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-container,
+.dashboard-container {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effects for interactive elements */
+.projects-list li:hover,
+.tasks-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  transform: translateX(4px);
+  transition: all 0.3s ease;
+}
+
+/* Status badges with pulse animation */
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.status-completed {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(46, 204, 113, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
 }
