@@ -10,17 +10,75 @@ body {
     background-color: #f5f5f580;
     color: #333;
     line-height: 1.6;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+        url('https://plus.unsplash.com/premium_vector-1683141147347-c6aa70127df2?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
 }
 
+/* Frosted glass effect for body */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    z-index: -1;
+    margin: -20px; /* Expands blur area beyond edges */
+}
+
+/* Rest of your existing CSS remains exactly the same */
+.auth-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Continue with all your existing CSS rules exactly as they were */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: rgba(44, 62, 80, 0.9);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* ... and so on for all your other existing rules ... */
 /* Auth Pages */
 .auth-container {
     max-width: 400px;
     margin: 50px auto;
     padding: 30px;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     text-align: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.6s ease-out;
 }
 
 .auth-container h1 {
@@ -58,11 +116,13 @@ body {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
     background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .btn-small {
@@ -88,15 +148,18 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    animation: fadeIn 0.6s ease-out;
 }
 
 header {
-    background: #2c3e50;
+    background: rgba(44, 62, 80, 0.9);
     color: white;
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .user-info {
@@ -112,9 +175,11 @@ header {
 
 .sidebar {
     width: 250px;
-    background: #34495e;
-    color: rgb(16, 15, 15);
+    background: rgba(52, 73, 94, 0.9);
+    color: white;
     padding: 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .projects-list h3 {
@@ -127,13 +192,31 @@ header {
 }
 
 .projects-list li {
-    padding: 8px 0;
+    padding: 10px 15px;
     cursor: pointer;
-    border-bottom: 1px solid #4a6278;
+    border-bottom: 1px solid rgba(74, 98, 120, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .projects-list li:hover {
     color: #3498db;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.projects-list li.active {
+    background: rgba(52, 152, 219, 0.2);
+    color: #3498db;
+    font-weight: 600;
+    border-left: 3px solid #3498db;
+}
+
+.projects-list li.active::after {
+    content: "→";
+    position: absolute;
+    right: 10px;
+    animation: pulse 1.5s infinite;
 }
 
 main {
@@ -142,10 +225,13 @@ main {
 }
 
 .project-details {
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .project-actions {
@@ -159,21 +245,27 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 8px;
+    overflow: hidden;
+    animation: fadeIn 0.6s ease-out;
 }
 
 th, td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.5);
 }
 
 th {
-    background-color: #f8f9fa;
+    background-color: rgba(248, 249, 250, 0.9);
     font-weight: 600;
 }
 
 tr:hover {
-    background-color: #f5f5f5;
+    background-color: rgba(245, 245, 245, 0.7) !important;
 }
 
 .status-badge {
@@ -181,6 +273,8 @@ tr:hover {
     border-radius: 20px;
     font-size: 12px;
     font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
 }
 
 .status-not-started {
@@ -196,6 +290,7 @@ tr:hover {
 .status-completed {
     background-color: #2ecc71;
     color: #fff;
+    animation: pulse 2s infinite;
 }
 
 .priority-high {
@@ -217,24 +312,29 @@ tr:hover {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: rgba(254, 254, 254, 0.95);
     margin: 10% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid rgba(136, 136, 136, 0.5);
     width: 80%;
     max-width: 600px;
     border-radius: 8px;
     position: relative;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: fadeIn 0.4s ease-out;
 }
 
 .close {
@@ -245,10 +345,12 @@ tr:hover {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .close:hover {
     color: #333;
+    transform: rotate(90deg);
 }
 
 /* Responsive */
@@ -266,71 +368,15 @@ tr:hover {
         overflow-x: auto;
     }
 }
-/* ======================== */
-/* ENHANCEMENTS ONLY */
-/* ======================== */
 
-/* Elegant workspace background */
-body {
-  background: 
-    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
-  background-size: cover;
-}
-
-/* Frosted glass panels */
-.auth-container,
-.dashboard-container,
-.modal-content,
-.project-details,
-.sidebar {
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  background-color: rgb(255, 255, 255) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-}
-
-/* Subtle animations */
+/* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.auth-container,
-.dashboard-container {
-  animation: fadeIn 0.6s ease-out;
-}
-
-.btn {
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Hover effects for interactive elements */
-.projects-list li:hover,
-.tasks-table tr:hover {
-  background-color: rgba(255, 255, 255, 0.7) !important;
-  transform: translateX(4px);
-  transition: all 0.3s ease;
-}
-
-/* Status badges with pulse animation */
-.status-badge {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 12px;
-}
-
-.status-completed {
-  animation: pulse 2s infinite;
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); }
-  70% { box-shadow: 0 0 0 8px rgba(46, 204, 113, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
 }
